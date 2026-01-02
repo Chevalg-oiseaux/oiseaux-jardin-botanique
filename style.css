@@ -51,10 +51,20 @@
   }
 
  
+
 audio {
-    width: 100%;
+    width: 350px;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
     background: #f5f5f5;
     border-radius: 8px;
-    display: block;
     height: 40px;
+}
+
+
+
+.oiseau {
+    max-width: 350px;
+    margin: 0 auto 30px auto;
 }
