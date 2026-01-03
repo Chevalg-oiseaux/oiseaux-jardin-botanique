@@ -59,3 +59,28 @@ audio {
     max-width: 350px;
     margin: 0 auto 30px auto;
 }
+/* --- Styles existants --- */
+body {
+  /* ... */
+}
+
+audio {
+  /* ... */
+}
+
+/* --- Style du bouton Aller au quiz --- */
+.bouton-quiz {
+  display: inline-block;
+  padding: 12px 20px;
+  background-color: #4a7c59;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.bouton-quiz:hover {
+  background-color: #3a6347;
+}
