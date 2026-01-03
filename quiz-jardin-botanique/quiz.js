@@ -192,15 +192,24 @@ function verifierReponse(choix, bonneReponse) {
   if (choix === bonneReponse) {
     score++;
     feedback.textContent = "Bravo !";
+
+    // On passe à la question suivante seulement si c'est correct
+    setTimeout(() => {
+      feedback.textContent = "";
+      nouvelleQuestion();
+    }, 1200);
+
   } else {
-    feedback.textContent = "Ce n’était pas celui-là.";
+    feedback.textContent = "Ce n’était pas celui-là. Essaie encore.";
+    // Rien d'autre : on reste sur la même question
   }
-
-  setTimeout(() => {
-    feedback.textContent = "";
-    nouvelleQuestion();
-  }, 1500);
 }
-
 // Bouton de départ
 document.getElementById("start").onclick = nouvelleQuestion;
+
+// Bouton pour réécouter le chant
+document.getElementById("replay").onclick = () => {
+  const audio = document.getElementById("audio");
+  audio.currentTime = 0;
+  audio.play();
+};
