@@ -213,18 +213,26 @@ function nouvelleQuestion() {
 }
 
 // Vérification
-function verifierReponse(choix, bonneReponse) {
+ffunction verifierReponse(choix, bonneReponse) {
   const feedback = document.getElementById("feedback");
 
   if (choix === bonneReponse) {
     score++;
     feedback.textContent = "Bravo !";
-// Afficher l'image de l'oiseau
-const oiseau = oiseaux.find(o => o.nom === bonneReponse);
-const img = document.getElementById("image-oiseau");
-img.src = oiseau.image;
-img.style.display = "block";
 
+    const oiseau = oiseaux.find(o => o.nom === bonneReponse);
+    const img = document.getElementById("image-oiseau");
+    img.src = oiseau.image;
+    img.style.display = "block";
+
+    setTimeout(() => {
+      feedback.textContent = "";
+      nouvelleQuestion();
+    }, 1200);
+
+  } else {
+    feedback.textContent = "Ce n’était pas celui-là. Essaie encore.";
+  }
 
 
  // On passe à la question suivante seulement si c'est correct
@@ -233,11 +241,28 @@ img.style.display = "block";
       nouvelleQuestion();
     }, 1200);
 
-  } else {
-    feedback.textContent = "Ce n’était pas celui-là. Essaie encore.";
-    // Rien d'autre : on reste sur la même question
-  }
+function nouvelleQuestion() {
+  document.getElementById("image-oiseau").style.display = "none";
+
+  const oiseau = oiseaux[Math.floor(Math.random() * oiseaux.length)];
+
+  const audio = document.getElementById("audio");
+  audio.src = oiseau.audio;
+  audio.play();
+
+  const choixMelanges = melanger([...oiseau.choix]);
+
+  const conteneur = document.getElementById("choix");
+  conteneur.innerHTML = "";
+
+  choixMelanges.forEach(choix => {
+    const bouton = document.createElement("button");
+    bouton.textContent = choix;
+    bouton.onclick = () => verifierReponse(choix, oiseau.nom);
+    conteneur.appendChild(bouton);
+  });
 }
+
 // Bouton de départ
 
 
