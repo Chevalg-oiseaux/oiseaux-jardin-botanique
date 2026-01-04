@@ -223,7 +223,9 @@ function verifierReponse(choix, bonneReponse) {
     const oiseau = oiseaux.find(o => o.nom === bonneReponse);
     const img = document.getElementById("image-oiseau");
     img.src = oiseau.image;
-    img.style.display = "block";
+  
+img.classList.add("visible");   // fade-in
+document.getElementById("nom-oiseau").textContent = oiseau.nom;  // nom
 
     // Passer à la question suivante
     setTimeout(() => {
