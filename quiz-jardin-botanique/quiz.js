@@ -182,6 +182,7 @@ function melanger(array) {
   return array;
 }
 
+
 let score = 0;
 
 // Nouvelle question
