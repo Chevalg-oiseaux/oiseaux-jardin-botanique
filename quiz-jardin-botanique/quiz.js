@@ -233,13 +233,19 @@ document.getElementById("nom-oiseau").textContent = oiseau.nom;  // nom
       nouvelleQuestion();
     }, 4000);
 
-  } else {
+} else {
     feedback.textContent = "Ce n’était pas celui-là. Essaie encore.";
   }
 }
+
+// Nouvelle question
 function nouvelleQuestion() {
-  // cacher l'image
-  document.getElementById("image-oiseau").style.display = "none";
+
+  // retirer le fade-in
+  document.getElementById("image-oiseau").classList.remove("visible");
+
+  // effacer le nom
+  document.getElementById("nom-oiseau").textContent = "";
 
   const oiseau = oiseaux[Math.floor(Math.random() * oiseaux.length)];
 
@@ -259,9 +265,12 @@ function nouvelleQuestion() {
     conteneur.appendChild(bouton);
   });
 }
+
+// Bouton de départ
 document.getElementById("image-oiseau").style.display = "none";
 document.getElementById("start").onclick = nouvelleQuestion;
 
+// Bouton pour réécouter le chant
 document.getElementById("replay").onclick = () => {
   const audio = document.getElementById("audio");
   audio.currentTime = 0;
