@@ -211,7 +211,6 @@ function nouvelleQuestion() {
     conteneur.appendChild(bouton);
   });
 }
-
 // Vérification
 function verifierReponse(choix, bonneReponse) {
   const feedback = document.getElementById("feedback");
@@ -236,3 +235,33 @@ function verifierReponse(choix, bonneReponse) {
     feedback.textContent = "Ce n’était pas celui-là. Essaie encore.";
   }
 }
+function nouvelleQuestion() {
+  // cacher l'image
+  document.getElementById("image-oiseau").style.display = "none";
+
+  const oiseau = oiseaux[Math.floor(Math.random() * oiseaux.length)];
+
+  const audio = document.getElementById("audio");
+  audio.src = oiseau.audio;
+  audio.play();
+
+  const choixMelanges = melanger([...oiseau.choix]);
+
+  const conteneur = document.getElementById("choix");
+  conteneur.innerHTML = "";
+
+  choixMelanges.forEach(choix => {
+    const bouton = document.createElement("button");
+    bouton.textContent = choix;
+    bouton.onclick = () => verifierReponse(choix, oiseau.nom);
+    conteneur.appendChild(bouton);
+  });
+}
+document.getElementById("image-oiseau").style.display = "none";
+document.getElementById("start").onclick = nouvelleQuestion;
+
+document.getElementById("replay").onclick = () => {
+  const audio = document.getElementById("audio");
+  audio.currentTime = 0;
+  audio.play();
+};
