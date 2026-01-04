@@ -266,8 +266,11 @@ function nouvelleQuestion() {
   });
 }
 
+
+
+
+
 // Bouton de départ
-document.getElementById("image-oiseau").style.display = "none";
 document.getElementById("start").onclick = nouvelleQuestion;
 
 // Bouton pour réécouter le chant
