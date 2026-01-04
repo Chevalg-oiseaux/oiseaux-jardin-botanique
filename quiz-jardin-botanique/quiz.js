@@ -213,18 +213,20 @@ function nouvelleQuestion() {
 }
 
 // Vérification
-ffunction verifierReponse(choix, bonneReponse) {
+function verifierReponse(choix, bonneReponse) {
   const feedback = document.getElementById("feedback");
 
   if (choix === bonneReponse) {
     score++;
     feedback.textContent = "Bravo !";
 
+    // Afficher l'image de l'oiseau
     const oiseau = oiseaux.find(o => o.nom === bonneReponse);
     const img = document.getElementById("image-oiseau");
     img.src = oiseau.image;
     img.style.display = "block";
 
+    // Passer à la question suivante
     setTimeout(() => {
       feedback.textContent = "";
       nouvelleQuestion();
@@ -233,45 +235,4 @@ ffunction verifierReponse(choix, bonneReponse) {
   } else {
     feedback.textContent = "Ce n’était pas celui-là. Essaie encore.";
   }
-
-
- // On passe à la question suivante seulement si c'est correct
-    setTimeout(() => {
-      feedback.textContent = "";
-      nouvelleQuestion();
-    }, 1200);
-
-function nouvelleQuestion() {
-  document.getElementById("image-oiseau").style.display = "none";
-
-  const oiseau = oiseaux[Math.floor(Math.random() * oiseaux.length)];
-
-  const audio = document.getElementById("audio");
-  audio.src = oiseau.audio;
-  audio.play();
-
-  const choixMelanges = melanger([...oiseau.choix]);
-
-  const conteneur = document.getElementById("choix");
-  conteneur.innerHTML = "";
-
-  choixMelanges.forEach(choix => {
-    const bouton = document.createElement("button");
-    bouton.textContent = choix;
-    bouton.onclick = () => verifierReponse(choix, oiseau.nom);
-    conteneur.appendChild(bouton);
-  });
-
-// Bouton de départ
-
-
-document.getElementById("image-oiseau").style.display = "none";
-document.getElementById("start").onclick = nouvelleQuestion;
-
-
-// Bouton pour réécouter le chant
-document.getElementById("replay").onclick = () => {
-  const audio = document.getElementById("audio");
-  audio.currentTime = 0;
-  audio.play();
-};
+}
