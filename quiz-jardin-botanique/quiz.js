@@ -266,10 +266,6 @@ function nouvelleQuestion() {
   });
 }
 
-
-
-
-
 // Bouton de départ
 document.getElementById("start").onclick = nouvelleQuestion;
 
