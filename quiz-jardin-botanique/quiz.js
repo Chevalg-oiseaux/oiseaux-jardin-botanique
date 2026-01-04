@@ -1,6 +1,5 @@
-const oiseau = oiseaux.find(o => o.nom === bonneReponse);
-img.src = oiseau.image;
-img.style.display = "block";
+const oiseaux = [
+
 
 {
     nom: "Bernache du Canada",
@@ -220,8 +219,15 @@ function verifierReponse(choix, bonneReponse) {
   if (choix === bonneReponse) {
     score++;
     feedback.textContent = "Bravo !";
+// Afficher l'image de l'oiseau
+const oiseau = oiseaux.find(o => o.nom === bonneReponse);
+const img = document.getElementById("image-oiseau");
+img.src = oiseau.image;
+img.style.display = "block";
 
-    // On passe à la question suivante seulement si c'est correct
+
+
+ // On passe à la question suivante seulement si c'est correct
     setTimeout(() => {
       feedback.textContent = "";
       nouvelleQuestion();
@@ -233,7 +239,11 @@ function verifierReponse(choix, bonneReponse) {
   }
 }
 // Bouton de départ
+
+
+document.getElementById("image-oiseau").style.display = "none";
 document.getElementById("start").onclick = nouvelleQuestion;
+
 
 // Bouton pour réécouter le chant
 document.getElementById("replay").onclick = () => {
