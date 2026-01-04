@@ -55,6 +55,17 @@ audio {
   height: 40px;
 }
 
+/* Image invisible par défaut + transition */
+#image-oiseau {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+/* Image visible (fade-in) */
+#image-oiseau.visible {
+  opacity: 1;
+}
+
 /* --- Style du bouton Aller au quiz --- */
 .bouton-quiz {
   display: inline-block;
