@@ -1,12 +1,4 @@
-
-const oiseaux = [
-  {
-    nom: "Bécassine de Wilson",
-    audio: "../sons/becassine-wilson.m4a",
-    image: "../images/becassine-wilson.jpg",
-    choix: ["Bécassine de Wilson", "Bernache du Canada", "Bruant à gorge blanche"]
-  },
-  {
+{
     nom: "Bernache du Canada",
     audio: "../sons/bernache-canada.m4a",
     image: "../images/bernache-canada.jpg",
@@ -80,8 +72,8 @@ const oiseaux = [
   },
   {
     nom: "Grand-duc d’Amérique",
-    audio: "../sons/grand-duc-amerique.m4a"
-    image: "../images/grand-duc-amerique.jpg",,
+    audio: "../sons/grand-duc-amerique.m4a",
+    image: "../images/grand-duc-amerique.jpg",
     choix: ["Grand-duc d’Amérique", "Épervier de Cooper", "Buse à épaulettes"]
   },
   {
