@@ -1,6 +1,5 @@
-const oiseau = oiseaux.find(o => o.nom === bonneReponse);
-img.src = oiseau.image;
-img.style.display = "block";
+const oiseaux = [
+
 
 {
     nom: "Bernache du Canada",
