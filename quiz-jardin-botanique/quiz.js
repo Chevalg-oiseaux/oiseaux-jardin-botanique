@@ -261,7 +261,6 @@ function nouvelleQuestion() {
     bouton.onclick = () => verifierReponse(choix, oiseau.nom);
     conteneur.appendChild(bouton);
   });
-}
 
 // Bouton de départ
 
