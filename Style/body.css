@@ -29,3 +29,24 @@ font-family: Arial, sans-serif;
   font-size: 1.1em;
   cursor: pointer;
 }
+/* Image de l’oiseau : invisible au départ, fade-in quand visible */
+#image-oiseau {
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  max-width: 300px;      /* optionnel : limite la taille */
+  margin: 20px auto;     /* optionnel : centre l’image */
+  display: block;
+}
+
+#image-oiseau.visible {
+  opacity: 1;
+}
+
+/* Nom de l’oiseau sous l’image */
+#nom-oiseau {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 10px;
+  color: #333;           /* tu peux ajuster selon ton thème */
+}
