@@ -229,7 +229,7 @@ function verifierReponse(choix, bonneReponse) {
     setTimeout(() => {
       feedback.textContent = "";
       nouvelleQuestion();
-    }, 1200);
+    }, 4000);
 
   } else {
     feedback.textContent = "Ce n’était pas celui-là. Essaie encore.";
